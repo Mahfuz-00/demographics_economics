@@ -1,0 +1,33 @@
+# Node
+node_modules/
+dist/
+*.local
+.vite/
+
+# Laravel / PHP
+/backend/vendor/
+/backend/storage/*.key
+/backend/storage/framework/cache/data/*
+/backend/storage/framework/sessions/*
+/backend/storage/framework/views/*
+/backend/storage/logs/*
+/backend/bootstrap/cache/*
+/backend/.phpunit.result.cache
+/backend/.phpunit.cache/
+
+# Environment
+.env
+.env.*
+!.env.example
+/backend/.env
+!/backend/.env.example
+
+# Ingested raw payload snapshots (kept locally, not versioned)
+/backend/storage/app/ingestion/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp

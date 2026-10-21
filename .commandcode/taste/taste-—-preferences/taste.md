@@ -1,0 +1,26 @@
+# Taste — Preferences
+- Prefers Laravel for the backend and React.js for the frontend on web projects. Confidence: 0.85
+- Comfortable leaving the choice of data-fetching tooling to the implementer rather than prescribing it ("use appropriate stack"). Confidence: 0.6
+- Insists that data systems never fabricate or auto-interpolate unavailable values; missing data must be recorded explicitly with the reason when known. Confidence: 0.8
+- Prefers append-only / versioned data: new data must not overwrite earlier records, so historical trends remain available. Confidence: 0.8
+- Requires source attribution stored alongside every data record — source URL, publisher, reference date, publication date when available, and retrieval timestamp. Confidence: 0.8
+- When credible sources disagree, prefers ranking sources by authority, retaining all values, and documenting discrepancies rather than silently replacing one value with another. Confidence: 0.75
+- Preserves original reported values, units, reference periods, and source definitions rather than normalizing them away (estimates, projections, and actual observations are kept distinct). Confidence: 0.75
+- Wants data structures, source attribution, historical storage, and update procedures kept consistent across the coordinated modules of one project. Confidence: 0.7
+- Prefers web scraping over official APIs when scraping yields better data, with a web-search fallback when a source has nothing. Confidence: 0.75
+- Wants individual data values to be manually editable/correctable by hand, not just machine-ingested. Confidence: 0.7
+- Ranks sources by authority with national statistics first, then the UN, then others. Confidence: 0.7
+- Wants data surfaced as spreadsheet-shaped matrix tables — countries as rows with each indicator's latest value as columns, and within a country one row per year with all indicators across — not only long-form one-value-per-row lists. Confidence: 0.7
+- Expects the app's layout to mirror the shape of the source files provided ("like the csv file I gave you"), including column organization and sequence — the table's columns should follow the source spreadsheet's own order rather than a reorganized grouping — and to offer CSV export of the tables. Confidence: 0.75
+- Wants the same column order applied consistently across every tabular view of one dataset — a country's year table must read across the same columns in the same positions as the main matrix table, so a leftover ordering by category is treated as a bug. Confidence: 0.7
+- Expects data tables to be interactively sortable by clicking any column heading (with an active-direction indicator), not just displayed in a fixed order. Confidence: 0.65
+- Tests must assert real rendered/served values (e.g. an actual cell value in the table), not just headings or structure, so a broken data path fails the suite instead of passing on scaffolding. Confidence: 0.7
+- Verifies fixes end-to-end against the running app — real API payload shape the components read, plus the production bundle contents — in addition to the unit test suite. Confidence: 0.65
+- Treats a year as a label, not a quantity: a year value must never be formatted with thousands separators (print "2024", never "2,024"). Confidence: 0.75
+- Wants numeric values shown in full with thousands separators in data tables, not abbreviated/compact (e.g. "1,450,935,791", not "1.45B"). Confidence: 0.7
+- Wants table column headers to display the full indicator/column name (wrapping onto multiple lines), not a truncated label. Confidence: 0.7
+- Wants metrics that follow arithmetically from available raw statistics (e.g. crude birth/death rates, natural change, net migration from births, deaths and population) to be computed and filled in rather than left blank. Confidence: 0.6
+- Wants hover/inspection details to appear as a floating tooltip that follows the pointer at the cursor's position, not only as a static readout panel elsewhere on the page. Confidence: 0.55
+- Expects metrics to match their plain-language definition rather than a netted one — a "how many people lost naturally" total must sum only the years/values that lost, never offset them against the years that gained. Confidence: 0.6
+- Wants adverse values flagged visually in red in data tables — negative numbers, and a country's current population when it has fallen below its own historical peak. Confidence: 0.6
+- Wants choropleth maps shaded by data range with a distinct colour per band, not shades of a single hue, since neighbouring bands of one colour are indistinguishable when adjacent countries differ — the ranking should still read as light shade for the low end and darker for the high end. Confidence: 0.6

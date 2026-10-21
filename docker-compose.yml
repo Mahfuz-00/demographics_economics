@@ -1,0 +1,34 @@
+# PostgreSQL only.
+#
+# The application is expected to run natively (see docs/getting-started.md): this
+# module was developed against a local PostgreSQL 16 install, and shipping app
+# container images that could not be smoke-tested here would be worse than not
+# shipping them at all.
+#
+#   docker compose up -d db
+#
+# Then point backend/.env at it:
+#   DB_HOST=127.0.0.1  DB_PORT=5432  DB_DATABASE=demographics_economy
+#   DB_USERNAME=postgres  DB_PASSWORD=postgres
+#
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: demog_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: demographics_economy
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - demog_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d demographics_economy"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  demog_pgdata:
